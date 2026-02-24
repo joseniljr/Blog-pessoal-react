@@ -13,9 +13,11 @@ function CardPostagem({ postagem }: CardPostagensProps) {
             <div>
                 <div className="flex w-full bg-indigo-400 py-2 px-4 items-center gap-4">
                     <img
-                        src={postagem.usuario?.foto}
-                        className='h-12 rounded-full'
-                        alt={postagem.usuario?.nome} />
+                className="w-12 h-12 rounded-full border-2 border-emerald-400"
+                src={postagem.usuario?.foto || "https://ik.imagekit.io/2zvbvzaqt/usuario.png"}
+                onError={(e) => e.currentTarget.src = "https://ik.imagekit.io/2zvbvzaqt/usuario.png"}
+                alt="Foto do usuário"
+/>
                     <h3 className='text-lg font-bold text-center uppercase'>
                         {postagem.usuario?.nome}
                     </h3>
@@ -36,7 +38,7 @@ function CardPostagem({ postagem }: CardPostagensProps) {
                     hover:bg-indigo-800 flex items-center justify-center py-2'>
                     <button>Editar</button>
                 </Link>
-                <Link to={`/deletarpostagem/${postagem.id}`}
+                <Link to={`/deletarpostagem/${postagem.id}`}    
                     className='text-white bg-red-400 
                     hover:bg-red-700 w-full flex items-center justify-center'>
                     <button>Deletar</button>
