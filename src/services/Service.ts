@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-wrapper-object-types */
 /* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import axios from "axios";
 
@@ -28,4 +29,8 @@ export const cadastrar = async (url: string, dados: object, setDados: Function, 
 export const atualizar = async (url: string, dados: object, setDados: Function, header: object) => {
     const resposta = await api.put(url, dados, header)
     setDados(resposta.data)
+}
+
+export const deletar = async (url: string, header: Object) => {
+    await api.delete(url, header)
 }
